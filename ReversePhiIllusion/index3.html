@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Reverse Phi Illusion - Strange Animation</title>
+  <style>
+  * {
+      padding: 0;
+      margin: 0;
+  }
+  body {
+      background: #b9bec1;
+  }
+  .reverse-phi-illusion {
+      position: relative;
+  }
+  .reverse-phi-illusion__concentric-circle {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      box-shadow: 0 0 0 40px #000;
+      position: absolute;
+      left: 100px;
+      top: 100px;
+      animation: 0.5s animate-concentric-circle linear infinite, 2s animate-concentric-circle--rotate linear infinite;
+  }
+  .reverse-phi-illusion__triangle {
+      width: 0;
+      height: 0;
+      border: 35px solid transparent;
+      border-left: 50px solid #000;
+      transform: translate(30px, -50%);
+      position: absolute;
+      top: 50%;
+      animation: animate-concentric-triangle 0.5s linear infinite;
+  }
+
+  .reverse-phi-illusion__concentric-circle--earlier {
+      left: 98px;
+      animation: 0.5s animate-concentric-circle -0.1s linear infinite, 2s animate-concentric-circle--rotate linear infinite;
+  }
+  .reverse-phi-illusion__triangle--earlier {
+      animation-delay: -0.1s;
+  }
+
+  .reverse-phi-illusion__concentric-circle--later {
+      left: 102px;
+      animation: 0.5s animate-concentric-circle 0.1s linear infinite, 2s animate-concentric-circle--rotate linear infinite;
+  }
+  .reverse-phi-illusion__triangle--later {
+      animation-delay: 0.1s;
+  }
+
+  @keyframes animate-concentric-circle {
+      0% {
+          box-shadow: 0 0 0 40px #000;
+      }
+      50% {
+          box-shadow: 0 0 0 40px #fff;
+      }
+      100% {
+          box-shadow: 0 0 0 40px #000;
+      }
+  }
+  @keyframes animate-concentric-circle--rotate {
+      from {
+          transform: rotate(0deg);
+      }
+      to {
+          transform: rotate(360deg);
+      }
+  }
+  @keyframes animate-concentric-triangle {
+      0% {
+          border-left: 50px solid #000;
+      }
+      50% {
+          border-left: 50px solid #fff;
+      }
+      100% {
+          border-left: 50px solid #000;
+      }
+  }
+  </style>
+</head>
+<body>
+<div class="reverse-phi-illusion">
+  <h1>视错觉现象</h1>
+  <div class="reverse-phi-illusion__concentric-circle reverse-phi-illusion__concentric-circle--earlier">
+    <div class="reverse-phi-illusion__triangle reverse-phi-illusion__triangle--earlier"></div>
+  </div>
+  <div class="reverse-phi-illusion__concentric-circle ">
+    <div class="reverse-phi-illusion__triangle "></div>
+  </div>
+  <div class="reverse-phi-illusion__concentric-circle reverse-phi-illusion__concentric-circle--later">
+    <div class="reverse-phi-illusion__triangle reverse-phi-illusion__triangle--later"></div>
+  </div>
+</div>
+</body>
+</html>
